@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.7.5"
 
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
@@ -22,7 +22,7 @@ repositories {
     jcenter()
 }
 
-project.version = "2018.4.0-rc1"
+project.version = "2019.1.0"
 
 android {
     compileSdkVersion 28
@@ -41,7 +41,7 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         releasePenTesting {
@@ -53,6 +53,9 @@ android {
         endToEndTesting {
             initWith debug
             testCoverageEnabled false
+        }
+        profiling {
+            initWith debug
         }
     }
 }
